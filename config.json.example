@@ -2,5 +2,5 @@
   "bot_username": "my_bot_username",
   "oauth_token": "my_oauth_token",
   "channel_name": "my_channel_name"
-  "prefix": "!",
+  "prefix": "?"
 }

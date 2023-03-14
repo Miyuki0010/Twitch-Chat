@@ -114,7 +114,7 @@ async def event_message(ctx):
     # Parse command
     command, *args = ctx.content.split(' ')
 
-    # If the command is '!remaining' or its alias '!r', show the remaining time
+    # If the command is '{BOT_PREFIX}remaining' or its alias '{BOT_PREFIX}r', show the remaining time
     if command in [f"{BOT_PREFIX}remaining", f"{BOT_PREFIX}r"]:
         if timer is None:
             await ctx.channel.send("There is no marathon currently running.")
@@ -123,7 +123,7 @@ async def event_message(ctx):
             hours, remaining_time = divmod(remaining_time, 3600)
             minutes, seconds = divmod(remaining_time, 60)
             await ctx.channel.send(f"Remaining time: {hours:02d}:{minutes:02d}")
-    # If the command is '!pause', pause the timer if the user is the channel owner or a mod
+    # If the command is '{BOT_PREFIX}pause', pause the timer if the user is the channel owner or a mod
     elif command == f"{BOT_PREFIX}pause":
         if ctx.author.name.lower() == CHANNEL_NAME.lower() or ctx.author.is_mod:
             if timer is None:
@@ -134,7 +134,7 @@ async def event_message(ctx):
                 await ctx.channel.send("Timer paused.")
         else:
             await ctx.channel.send("Only the channel owner and mods can pause the timer.")
-    # If the command is '!resume', resume the timer if the user is the channel owner or a mod
+    # If the command is '{BOT_PREFIX}resume', resume the timer if the user is the channel owner or a mod
     elif command == f"{BOT_PREFIX}resume":
         if ctx.author.name.lower() == CHANNEL_NAME.lower() or ctx.author.is_mod:
             if timer is not None:
@@ -144,7 +144,7 @@ async def event_message(ctx):
                 await ctx.channel.send("Timer resumed.")
         else:
             await ctx.channel.send("Only the channel owner and mods can resume the timer.")
-    # If the command is '!h' or its alias '!help', show the available commands
+    # If the command is '{BOT_PREFIX}h' or its alias '{BOT_PREFIX}help', show the available commands
     elif command in [f"{BOT_PREFIX}h", f"{BOT_PREFIX}help"]:
         await ctx.channel.send(f"Available commands: {BOT_PREFIX}remaining ({BOT_PREFIX}r), {BOT_PREFIX}pause, {BOT_PREFIX}resume")
     # If the command is unknown, show an error message and add a cooldown to the command
