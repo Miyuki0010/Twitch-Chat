@@ -1,7 +1,6 @@
 import asyncio
 import json
 import random
-
 import twitchio
 
 # Load bot config from json file
