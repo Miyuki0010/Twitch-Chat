@@ -3,8 +3,4 @@
   "oauth_token": "my_oauth_token",
   "channel_name": "my_channel_name"
   "prefix": "!",
-  "initial_timer": {
-    "minutes": 30,
-    "seconds": 0
-  }
 }
